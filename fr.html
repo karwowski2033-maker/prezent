@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Pour toi ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="heart">❤️</div>
+
+    <h1>Pour moi chére Ania</h1>
+    <h2>Un petit endroit créé avec amour</h2>
+
+    <div class="card">
+        <h3>Salut mon amour 🌸</h3>
+        <p>
+            Voici le cadeau dont je t'ai tant parlé. 
+            Je tiens à te remercier pour tout ce que tu m'as apporté.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Pourquoi je te suis reconnaissant?💕</h3>
+        <ul class="reasons">
+            <li>Tous les moments où je me sentais proche de toi</li>
+            <li>Ton beau visage, tes yeux <del>et tes pieds</del></li>
+            <li>Pour être à mes côtés quand j'ai besoin de toi</li>
+            <li>Pour les souvenirs que j'ai avec toi.</li>
+            <li>Tu es ma personne préférée au monde 💖</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Une petite promesse 💌</h3>
+        <p>
+           Je promets d'être à tes côtés dans 
+           les bons comme dans les mauvais moments.
+    Je serai là quand tu ne comprendras pas les maths 
+    ou quand tu n'auras pas la force de faire quoi que ce soit.
+     Même quand je serai de nouveau à Białystok et toi à Grajewo.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Écoute cette chanson 🎶</h3>
+        <p>
+            Un peu de musique française,
+            pour accompagner ce moment rien qu’à toi. 
+            Ce n'est pas un travail de grande qualité,
+             mais je suis sûr que si tu m'aidais, 
+             le résultat serait formidable.
+        </p>
+
+        <audio controls style="margin-top:20px; width:100%;">
+            <source src="Piaf.mp3" type="audio/mpeg">
+            Ton navigateur ne supporte pas la lecture audio.
+        </audio>
+    </div>
+
+    <div class="footer">
+        Fait avec amour par Rafał💕
+    </div>
+</div>
+
+<img src="null.png" alt="null" class="bottom-right-image">
+
+<script>
+    
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "floating-heart";
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 7000);
+    }, 600);
+
+    let heartClicks = 0;
+    const heartElement = document.querySelector(".heart");
+    
+    heartElement.style.cursor = "pointer";
+    heartElement.addEventListener("click", function() {
+        heartClicks++;
+        
+        if (heartClicks === 17) {
+            const message = document.createElement("div");
+            message.className = "easter-egg-message";
+            message.innerHTML = `
+                <p>Je t'aime beaucoup 💕</p>
+                <img src="JTA.webp" alt="JTA" class="easter-egg-image">
+            `;
+            document.body.appendChild(message);
+            
+            setTimeout(() => {
+                message.remove();
+                heartClicks = 0; 
+            }, 6000);
+        }
+    });
+
+</script>
+
+</body>
+</html>
